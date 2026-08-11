@@ -1,4 +1,4 @@
-/* Iqstage — interacțiuni site */
+/* Varga's Music Hub Brașov — interacțiuni site */
 (function () {
   "use strict";
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   Iqstage — cursuri muzică & orchestră pentru evenimente
+   Varga's Music Hub Brașov — cursuri muzică & orchestră pentru evenimente
    Paletă: crem, gri-antracit, accent auriu
    ============================================================ */
 :root{
@@ -101,12 +101,10 @@ ul{list-style:none;padding:0}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
 .brand{display:flex;align-items:center;gap:11px;flex:none}
 .brand-mark{
-  width:42px;height:42px;border-radius:11px;flex:none;
+  width:46px;height:46px;flex:none;
   display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--antracit),var(--antracit-2));
-  color:var(--auriu-soft);
 }
-.brand-mark svg{width:23px;height:23px}
+.brand-mark svg{width:46px;height:46px}
 .brand-name{font-family:var(--serif);font-weight:800;font-size:1.5rem;color:var(--antracit);line-height:1;letter-spacing:.3px}
 .brand-name b{color:var(--auriu-2);font-weight:800}
 .brand-sub{display:block;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted);margin-top:3px}
@@ -393,3 +391,15 @@ ul{list-style:none;padding:0}
   *{animation:none!important;transition:none!important;scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== Dropdown Servicii (hover) ===== */
+.main-nav .has-dropdown{position:relative}
+.main-nav .has-dropdown>a::after{content:"";display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);margin-left:8px;opacity:.6}
+.main-nav .dropdown{position:absolute;top:calc(100% + 4px);left:0;min-width:236px;background:var(--alb);border:1px solid var(--linie);border-radius:var(--radius-sm);box-shadow:var(--shadow);padding:8px;margin:0;list-style:none;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity var(--t),transform var(--t),visibility var(--t);z-index:60}
+.main-nav .has-dropdown:hover .dropdown,.main-nav .has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.main-nav .dropdown::before{content:"";position:absolute;top:-6px;left:0;right:0;height:6px}
+.main-nav .dropdown a{display:block;padding:10px 14px;border-radius:8px;white-space:nowrap;color:var(--text);font-weight:600;background:none}
+.main-nav .dropdown a:hover{background:var(--crem-2);color:var(--auriu-2)}
+/* sub-linkuri in meniul mobil */
+.mm-nav .mm-sub{font-size:.95rem;padding-left:28px;position:relative;opacity:.9}
+.mm-nav .mm-sub::before{content:"";position:absolute;left:12px;top:50%;width:9px;height:2px;background:var(--auriu);border-radius:2px;transform:translateY(-50%)}
