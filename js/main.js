@@ -57,18 +57,41 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // ---- Formular demo (fără backend) ----
+  // ---- Formular contact (Formsubmit, AJAX) ----
   var form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = document.getElementById("formStatus");
+      var btn = form.querySelector('button[type="submit"]');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       if (status) {
         status.hidden = false;
-        status.textContent =
-          "Formular demonstrativ — trimiterea automată nu este încă activă. Vă rugăm să ne sunați la 0740 057 211 sau să ne scrieți pe WhatsApp și revenim rapid cu o ofertă.";
-        status.scrollIntoView({ behavior: "smooth", block: "center" });
+        status.style.color = "var(--text-muted)";
+        status.textContent = "Se trimite...";
       }
+      if (btn) { btn.disabled = true; }
+      fetch("https://formsubmit.co/ajax/contact.smartweb.ro@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function () {
+          if (status) {
+            status.style.color = "var(--auriu-2)";
+            status.textContent = "Îți mulțumim! Am primit cererea ta și revenim în cel mai scurt timp.";
+            status.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          form.reset();
+        })
+        .catch(function () {
+          if (status) {
+            status.style.color = "#b3261e";
+            status.textContent = "A apărut o eroare la trimitere. Te rugăm sună-ne la 0740 057 211 sau scrie-ne pe WhatsApp.";
+          }
+        })
+        .then(function () { if (btn) { btn.disabled = false; } });
     });
   }
 })();

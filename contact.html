@@ -130,10 +130,13 @@
         <p style="font-size:.95rem;margin-bottom:18px">Completează câmpurile de mai jos și revenim cu o propunere personalizată.</p>
         <div class="form-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          <span>Formular demonstrativ: trimiterea automată nu este încă activată. Pentru un răspuns imediat, sună-ne sau scrie-ne pe WhatsApp.</span>
+          <span>Îți răspundem cât mai repede cu o ofertă. Pentru urgențe, sună-ne sau scrie-ne pe WhatsApp.</span>
         </div>
-        <!-- Pentru activare: înlocuiește action cu endpoint-ul Formspree și scoate atributul demo din JS. -->
-        <form id="contactForm" action="https://formspree.io/f/your-id-here" method="POST" novalidate>
+        <form id="contactForm" action="https://formsubmit.co/contact.smartweb.ro@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Cerere nouă de pe site (Varga's Music Hub)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="field">
             <label for="nume">Nume <span class="req">*</span></label>
             <input type="text" id="nume" name="nume" autocomplete="name" placeholder="Numele tău" required>
